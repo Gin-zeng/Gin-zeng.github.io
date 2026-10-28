@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>曾朋涛 · 结构 / 硬件 / 系统测试</title>
+<meta name="description" content="曾朋涛，东华大学机械工程，做机械结构、驱动板与整机测试。">
+<style>
+  :root{
+    --ink:#1f2d33; --muted:#5f6f76; --accent:#4e7282; --gold:#c08a4e;
+    --line:#e6eaec; --bg:#fcfcfb; --card:#fff;
+  }
+  *{box-sizing:border-box}
+  html{-webkit-text-size-adjust:100%}
+  body{
+    margin:0; background:var(--bg); color:var(--ink);
+    font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC","Hiragino Sans GB","Microsoft YaHei",sans-serif;
+    line-height:1.65; font-size:16px;
+  }
+  a{color:var(--accent); text-decoration:none; border-bottom:1px solid rgba(78,114,130,.35)}
+  a:hover{border-bottom-color:var(--accent)}
+  main{max-width:860px; margin:0 auto; padding:72px 24px 96px}
+
+  /* hero */
+  .hero{display:flex; gap:40px; align-items:center; justify-content:space-between}
+  .hero h1{margin:0; font-size:46px; letter-spacing:.04em; line-height:1.1}
+  .hero .en{margin:6px 0 18px; font-size:13px; letter-spacing:.22em; text-transform:uppercase; color:var(--muted)}
+  .tagline{margin:0 0 18px; font-size:18px; color:var(--ink); max-width:520px}
+  .meta{list-style:none; margin:0 0 22px; padding:0; color:var(--muted); font-size:14px; display:flex; flex-wrap:wrap; gap:6px 18px}
+  .links{display:flex; flex-wrap:wrap; gap:10px}
+  .links a{
+    display:inline-block; padding:7px 14px; border:1px solid var(--line); border-radius:999px;
+    font-size:13px; color:var(--ink); background:#fff; border-bottom:1px solid var(--line);
+  }
+  .links a:hover{border-color:var(--accent); color:var(--accent)}
+  .portrait{
+    width:132px; height:172px; object-fit:cover; border-radius:10px;
+    border:1px solid var(--line); flex:none;
+  }
+
+  .rule{margin:44px 0 0; border:0; border-top:2px solid var(--accent)}
+  .rule.thin{border-top:1px solid var(--gold); margin-top:3px}
+
+  /* sections */
+  section{margin-top:52px}
+  h2{
+    margin:0 0 20px; font-size:15px; letter-spacing:.14em; text-transform:uppercase;
+    color:var(--muted); font-weight:600; display:flex; align-items:baseline; gap:10px;
+  }
+  h2::before{content:attr(data-n); color:var(--gold); font-variant-numeric:tabular-nums}
+  h2::after{content:""; flex:1; height:1px; background:var(--line)}
+
+  /* cards */
+  .card{
+    background:var(--card); border:1px solid var(--line); border-radius:12px;
+    padding:24px 26px; margin-bottom:18px; transition:border-color .2s ease, box-shadow .2s ease;
+  }
+  .card:hover{border-color:#cdd8dc; box-shadow:0 6px 20px rgba(31,45,51,.06)}
+  .card-head{display:flex; align-items:baseline; justify-content:space-between; gap:16px; flex-wrap:wrap}
+  .card h3{margin:0; font-size:19px; letter-spacing:.01em}
+  .date{font-size:13px; color:var(--muted); font-variant-numeric:tabular-nums; white-space:nowrap}
+  .role{margin:4px 0 12px; font-size:13px; color:var(--accent); letter-spacing:.04em}
+  .card p{margin:0 0 14px; color:#33454c}
+  .facts{list-style:none; display:flex; gap:26px; margin:0 0 14px; padding:0}
+  .facts b{display:block; font-size:20px; color:var(--ink); font-variant-numeric:tabular-nums}
+  .facts span{font-size:12px; color:var(--muted)}
+  .tags{margin:0; font-size:12.5px; color:var(--muted); letter-spacing:.02em}
+
+  /* skills */
+  .grid{display:grid; grid-template-columns:120px 1fr; gap:10px 24px; margin:0}
+  .grid dt{font-size:13px; color:var(--accent); letter-spacing:.06em; padding-top:3px}
+  .grid dd{margin:0; color:#33454c; font-size:15px}
+
+  /* honors */
+  .honors{list-style:none; margin:0; padding:0}
+  .honors li{display:flex; justify-content:space-between; gap:16px; padding:12px 0; border-bottom:1px solid var(--line); font-size:15px}
+  .honors li:last-child{border-bottom:0}
+  .honors .when{color:var(--muted); font-size:13px; white-space:nowrap; font-variant-numeric:tabular-nums}
+
+  footer{margin-top:64px; padding-top:20px; border-top:1px solid var(--line); color:var(--muted); font-size:13px; display:flex; justify-content:space-between; gap:16px; flex-wrap:wrap}
+
+  @media (max-width:680px){
+    main{padding:44px 20px 72px}
+    .hero{flex-direction:column-reverse; align-items:flex-start; gap:24px}
+    .portrait{width:104px; height:136px}
+    .hero h1{font-size:38px}
+    .grid{grid-template-columns:1fr; gap:4px 0}
+    .grid dd{margin-bottom:12px}
+    .facts{gap:20px}
+  }
+  @media print{
+    body{background:#fff}
+    .links,footer{display:none}
+    .card{box-shadow:none; break-inside:avoid}
+  }
+</style>
+</head>
+<body>
+<main>
+
+  <header class="hero">
+    <div>
+      <h1>曾朋涛</h1>
+      <p class="en">Pengtao Zeng</p>
+      <p class="tagline">结构 · 硬件 · 系统测试 —— 把想法做成能跑、能测的实物。</p>
+      <ul class="meta">
+        <li>东华大学 · 机械工程 · 2028 届</li>
+        <li>上海 · 松江</li>
+        <li>GPA 4.0 / 5.0</li>
+      </ul>
+      <nav class="links">
+        <a href="assets/resume.pdf">简历 PDF</a>
+        <a href="https://github.com/Gin-zeng">GitHub</a>
+        <a href="mailto:17262134162@163.com">Email</a>
+      </nav>
+    </div>
+    <img class="portrait" src="assets/photo.jpg" alt="曾朋涛">
+  </header>
+
+  <hr class="rule"><hr class="rule thin">
+
+  <section id="work">
+    <h2 data-n="01">项目</h2>
+
+    <article class="card">
+      <div class="card-head">
+        <h3>RoboMaster 飞镖系统</h3>
+        <span class="date">2024.09 – 至今</span>
+      </div>
+      <p class="role">机械负责人 → 机械组组长</p>
+      <p>25–27 赛季主导飞镖发射系统的机械结构：需求定义、方案选型、建模出图、加工装配，并与电控、算法完成 PWM 驱动信号、供电与反馈接口联调。制定整机测试方案，做故障定位与成因分析，按测试数据迭代结构件与选型。</p>
+      <ul class="facts">
+        <li><b>−30%</b><span>成本</span></li>
+        <li><b>+50%</b><span>发射精度</span></li>
+        <li><b>+30%</b><span>机构寿命</span></li>
+      </ul>
+      <p class="tags">结构设计 · 工程出图 · 加工装配 · 联调测试 · 团队管理</p>
+    </article>
+
+    <article class="card">
+      <div class="card-head">
+        <h3>一体式去黄叶机</h3>
+        <span class="date">2025.12 – 2026.05</span>
+      </div>
+      <p class="role">嵌入式开发 / 硬件设计</p>
+      <p>全国大学生机械创新设计大赛作品。设计去黄叶模块的集成驱动板，完成板级调试与硬件验证；编写嵌入式程序与外设驱动，配合样机功能验证与整机联调。</p>
+      <ul class="facts">
+        <li><b>国二</b><span>全国二等奖</span></li>
+        <li><b>1 套</b><span>可落地实物原型</span></li>
+      </ul>
+      <p class="tags">嘉立创EDA · 驱动板 · STM32 · 板级调试</p>
+    </article>
+  </section>
+
+  <section id="skills">
+    <h2 data-n="02">技能</h2>
+    <dl class="grid">
+      <dt>硬件</dt>
+      <dd>嘉立创EDA；驱动板设计、硬件调试；示波器、万用表</dd>
+      <dt>结构</dt>
+      <dd>SolidWorks、CAD 建模与出图；Ansys、Adams 仿真分析；结构设计与装配</dd>
+      <dt>测试</dt>
+      <dd>整机测试方案设计、联调测试、故障定位与测试报告输出</dd>
+      <dt>编程</dt>
+      <dd>C / C++；基础数据结构与算法；Git 版本管理</dd>
+      <dt>语言</dt>
+      <dd>CET-6（557）</dd>
+    </dl>
+  </section>
+
+  <section id="honors">
+    <h2 data-n="03">荣誉</h2>
+    <ul class="honors">
+      <li><span>全国大学生机械创新设计大赛 · 全国二等奖</span><span class="when">2026</span></li>
+      <li><span>RoboMaster 全国大学生机器人大赛 · 国家级三等奖</span><span class="when">2025</span></li>
+      <li><span>国家奖学金 · 校级优秀学生</span><span class="when">2024–2025</span></li>
+    </ul>
+  </section>
+
+  <footer>
+    <span>© 2026 曾朋涛</span>
+    <span>Built with GitHub Pages</span>
+  </footer>
+
+</main>
+</body>
+</html>
